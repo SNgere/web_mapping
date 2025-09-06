@@ -15,10 +15,10 @@ map.options["minZoom"] = 7
 map.options["maxBounds"] = [[min_lat, min_lon], [max_lat, max_lon]]
 
 
-def points():
+def load_points():
     df = pd.read_csv("sok.csv")
     gdf = gpd.GeoDataFrame(
-        df, geometry=gpd.points_from_xy(df.LONGITUDE, df.LATITUDE), crs="EPSG:4326"
+        df, geometry=gpd.points_from_xy(df.Longitude, df.Latitude), crs="EPSG:4326"
     )
     return gdf
 
@@ -52,10 +52,7 @@ folium.GeoJson(
 
 marker_cluster = MarkerCluster().add_to(map)
 
-df = pd.read_csv("sok.csv")
-gdf = gpd.GeoDataFrame(
-    df, geometry=gpd.points_from_xy(df.Longitude, df.Latitude), crs="EPSG:4326"
-)
+gdf = load_points()
 
 for index, row in gdf.iterrows():
     popup_text = f"""
@@ -66,10 +63,10 @@ for index, row in gdf.iterrows():
         <p><b>📧 Email:</b> {row["Email"]}</p>
         <p><b>🕒 Hours:</b> {row["Hours"]}</p>
         <p><b>🔧 Services:</b> {row["Services"]}</p>
-        <img src="https://eprocedures.investkenya.go.ke/media/Survey%20of%20kenya.jpg"; style="width:100%; height:auto; border-radius:4px;">
+        <img src="https://plus.unsplash.com/premium_photo-1664041040572-3d9f11a6fa88?q=80&w=1700&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"; style="width:100%; height:auto; border-radius:4px;">
     </div>
     """
-    popup = folium.Popup(popup_text, max_width=250, keep_in_view=True)
+    popup = folium.Popup(popup_text, max_width=250, keep_in_view=False)
 
     tooltip_text = f"📍 {row['Land Registry']} Survey Office"
 
