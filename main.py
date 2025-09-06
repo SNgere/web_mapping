@@ -50,7 +50,7 @@ folium.GeoJson(
     control=False,
 ).add_to(map)
 
-marker_cluster = MarkerCluster().add_to(map)
+marker_cluster = MarkerCluster(control=False).add_to(map)
 
 gdf = load_points()
 
@@ -86,10 +86,15 @@ for index, row in gdf.iterrows():
         ),
     ).add_to(marker_cluster)
 
-folium.LayerControl(position="bottomright", collapsed=False).add_to(map)
+folium.plugins.Fullscreen(
+    position="topleft",
+    title="Expand me",
+    title_cancel="Exit me",
+    force_separate_button=True,
+).add_to(map)
 
+folium.plugins.LocateControl().add_to(map)
+
+folium.LayerControl(position="topleft", collapsed=False).add_to(map)
 
 map.save("map.html")
-
-
-# https://unsplash.com/photos/a-red-pin-is-in-a-maze-of-cubes-Zm_MpFBGbDw
