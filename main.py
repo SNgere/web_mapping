@@ -9,18 +9,16 @@ max_lat = 5.01439
 min_lon = 30.09155
 max_lon = 45.75806
 
-map = folium.Map(location=[-0.02, 37.91], zoom_start=7)
-
+map = folium.Map(location=[-0.02, 37.91], zoom_start=7, tiles=None)
 map.options["minZoom"] = 7
 map.options["maxBounds"] = [[min_lat, min_lon], [max_lat, max_lon]]
 
-
-def load_points():
-    df = pd.read_csv("sok.csv")
-    gdf = gpd.GeoDataFrame(
-        df, geometry=gpd.points_from_xy(df.Longitude, df.Latitude), crs="EPSG:4326"
-    )
-    return gdf
+folium.TileLayer(
+    "Esri.NatGeoWorldMap",
+    name="NatGeo",
+    opacity=0.8,
+    attr="Google",
+).add_to(map)
 
 
 folium.TileLayer(
@@ -29,6 +27,23 @@ folium.TileLayer(
     show=False,
     attr="Google",
 ).add_to(map)
+
+folium.plugins.Fullscreen(
+    position="topleft",
+    title="Expand me",
+    title_cancel="Exit me",
+    force_separate_button=True,
+).add_to(map)
+
+folium.plugins.LocateControl().add_to(map)
+
+
+def load_points():
+    df = pd.read_csv("sok.csv")
+    gdf = gpd.GeoDataFrame(
+        df, geometry=gpd.points_from_xy(df.Longitude, df.Latitude), crs="EPSG:4326"
+    )
+    return gdf
 
 
 folium.GeoJson(
@@ -86,14 +101,6 @@ for index, row in gdf.iterrows():
         ),
     ).add_to(marker_cluster)
 
-folium.plugins.Fullscreen(
-    position="topleft",
-    title="Expand me",
-    title_cancel="Exit me",
-    force_separate_button=True,
-).add_to(map)
-
-folium.plugins.LocateControl().add_to(map)
 
 folium.LayerControl(position="topleft", collapsed=False).add_to(map)
 
