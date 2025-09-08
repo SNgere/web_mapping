@@ -18,26 +18,29 @@ map = leafmap.Map(
     control_scale=False,
     tiles=None,
     center=(-0.02, 37.91),
-    zoom=7,
+    zoom=6,
+    prefer_canvas=True,
+    zoom_control=False,
 )
 
-map.options["minZoom"] = 7
+map.options["minZoom"] = 6
 map.options["maxBounds"] = [[min_lat, min_lon], [max_lat, max_lon]]
-
 
 params = {
     "fontsize": 17,
-    "fontcolor": "green",
+    "fontcolor": "#1565c0",  # deep blue
     "bold": True,
+    "underline": True,  # 👈 adds underline
     "padding": "10px",
     "background": True,
-    "bg_color": "rgba(255,255,255,0.8)",
-    "border": "2px solid #d32f2f", 
+    "bg_color": "rgba(227,242,253,0.9)",  # light blue background
+    "border": "2px solid #1565c0",
     "border_radius": "5px",
-    "position": "bottomleft",
+    "position": "topright",
 }
 
-map.add_text("Kenya", **params)
+
+map.add_text("Points of Interest Across Kenya", **params)
 
 
 folium.TileLayer(
@@ -124,7 +127,7 @@ for index, row in gdf.iterrows():
         popup=popup,
         tooltip=tooltip_text,
         icon=folium.Icon(
-            color=icon_color, icon="building", prefix="fa", icon_color= "white"
+            color=icon_color, icon="building", prefix="fa", icon_color="white"
         ),
     ).add_to(marker_cluster)
 
@@ -166,4 +169,4 @@ map.add_legend(
 
 folium.LayerControl(position="topleft", collapsed=False).add_to(map)
 
-map.save("map.html")
+map.save("index.html")
