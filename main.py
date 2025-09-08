@@ -27,12 +27,12 @@ map.options["maxBounds"] = [[min_lat, min_lon], [max_lat, max_lon]]
 
 params = {
     "fontsize": 17,
-    "fontcolor": "red",
+    "fontcolor": "green",
     "bold": True,
     "padding": "10px",
     "background": True,
     "bg_color": "rgba(255,255,255,0.8)",
-     "border": "2px solid #d32f2f", 
+    "border": "2px solid #d32f2f", 
     "border_radius": "5px",
     "position": "bottomleft",
 }
@@ -116,7 +116,7 @@ for index, row in gdf.iterrows():
     if row["Land Registry"] == "Ruaraka":
         icon_color = "red"
     else:
-        icon_color = "red"
+        icon_color = "purple"
 
     folium.Marker(
         location=[row.geometry.y, row.geometry.x],
@@ -124,7 +124,7 @@ for index, row in gdf.iterrows():
         popup=popup,
         tooltip=tooltip_text,
         icon=folium.Icon(
-            color=icon_color, icon="building", prefix="fa", icon_color="white"
+            color=icon_color, icon="building", prefix="fa", icon_color= "white"
         ),
     ).add_to(marker_cluster)
 
