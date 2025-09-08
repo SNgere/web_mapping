@@ -2,6 +2,7 @@ import folium
 import pandas as pd
 import geopandas as gpd
 from folium.plugins import MarkerCluster  # MousePosition, GroupedLayerControl,
+import leafmap.foliumap as leafmap
 
 
 min_lat = -4.77352
@@ -9,9 +10,35 @@ max_lat = 5.01439
 min_lon = 30.09155
 max_lon = 45.75806
 
-map = folium.Map(location=[-0.02, 37.91], zoom_start=7, tiles=None)
+map = leafmap.Map(
+    draw_control=False,
+    measure_control=False,
+    fullscreen_control=False,
+    attribution_control=True,
+    control_scale=False,
+    tiles=None,
+    center=(-0.02, 37.91),
+    zoom=7,
+)
+
 map.options["minZoom"] = 7
 map.options["maxBounds"] = [[min_lat, min_lon], [max_lat, max_lon]]
+
+
+params = {
+    "fontsize": 17,
+    "fontcolor": "red",
+    "bold": True,
+    "padding": "10px",
+    "background": True,
+    "bg_color": "rgba(255,255,255,0.8)",
+     "border": "2px solid #d32f2f", 
+    "border_radius": "5px",
+    "position": "bottomleft",
+}
+
+map.add_text("Kenya", **params)
+
 
 folium.TileLayer(
     "Esri.NatGeoWorldMap",
@@ -89,7 +116,7 @@ for index, row in gdf.iterrows():
     if row["Land Registry"] == "Ruaraka":
         icon_color = "red"
     else:
-        icon_color = "darkblue"
+        icon_color = "red"
 
     folium.Marker(
         location=[row.geometry.y, row.geometry.x],
@@ -101,6 +128,41 @@ for index, row in gdf.iterrows():
         ),
     ).add_to(marker_cluster)
 
+map.add_wms_layer(
+    url="https://geoportal.icpac.net/geoserver/ows?",
+    layers="geonode:ken_protected_areas",
+    name="Protected Areas (WMS)",
+    attribution="",
+    format="image/png",
+    shown=False,
+)
+
+legend_colors = {
+    "Forest Reserve": "#e78ac3",
+    "Game Sanctuary": "#00ff00",
+    "National Park": "#008000",
+    "National Reserve": "#ffd700",
+}
+
+
+stylel = {
+    "position": "fixed",
+    "z-index": "9999",
+    "border": "2px solid grey",
+    "background-color": "rgba(255, 255, 255, 0.8)",
+    "border-radius": "10px",
+    "padding": "5px",
+    "font-size": "14px",
+    "bottom": "20px",
+    "right": "5px",
+}
+
+map.add_legend(
+    title="Protected Areas",
+    legend_dict=legend_colors,
+    draggable=False,
+    style=stylel,
+)
 
 folium.LayerControl(position="topleft", collapsed=False).add_to(map)
 
