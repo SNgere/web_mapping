@@ -8,3 +8,8 @@ wheels/
 
 # Virtual environments
 .venv
+.ruff_cache
+Desktop.ini
+ESA_legend.html
+index.html
+RF01072025105420671932007.ico

@@ -8,8 +8,12 @@ dependencies = [
     "folium>=0.20.0",
     "geopandas>=1.1.1",
     "leafmap>=0.52.0",
+    "localtileserver>=0.10.6",
     "matplotlib>=3.10.6",
     "pandas>=2.3.2",
+    "rioxarray>=0.19.0",
+    "setuptools>=80.9.0",
+    "xarray>=2025.9.0",
 ]
 
 
