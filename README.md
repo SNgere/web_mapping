@@ -1,4 +1,5 @@
 ## Webmaps with Python - [Visit site](https://sngere.github.io/web_mapping/)
 
-An interactive webmap built with Python, Folium and Leafmap.
+An interactive webmap built with Folium and Leafmap.
+
 
