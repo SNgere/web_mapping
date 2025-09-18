@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_345e6b4c6c4c264774a0af32b67d46ed {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+    <script src="https://cdn.jsdelivr.net/gh/digidem/leaflet-side-by-side@2.0.0/leaflet-side-by-side.min.js"></script>
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_345e6b4c6c4c264774a0af32b67d46ed" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_345e6b4c6c4c264774a0af32b67d46ed = L.map(
+                "map_345e6b4c6c4c264774a0af32b67d46ed",
+                {
+                    center: [20.0, 0.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": false,
+  "preferCanvas": true,
+  "drawControl": false,
+  "measureControl": false,
+  "fullscreenControl": false,
+  "attributionControl": true,
+  "searchControl": false,
+  "drawExport": false,
+  "layersControl": true,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+
+            
+
+        
+    
+            map_345e6b4c6c4c264774a0af32b67d46ed.fitBounds(
+                [[20, 0], [20, 0]],
+                {"maxZoom": 6}
+            );
+        
+    
+            var tile_layer_6bc52580921ab734f406f7d4141deef4 = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=y\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 18,
+  "maxNativeZoom": 18,
+  "noWrap": false,
+  "attribution": "Google",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 0.5,
+}
+
+            );
+        
+    
+            tile_layer_6bc52580921ab734f406f7d4141deef4.addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+        
+    
+        function geo_json_02bd808845c6534dd545c4e617330eda_styler(feature) {
+            switch(feature.id) {
+                default:
+                    return {"color": "#FF0000", "weight": 3};
+            }
+        }
+
+        function geo_json_02bd808845c6534dd545c4e617330eda_onEachFeature(feature, layer) {
+
+            layer.on({
+            });
+        };
+        var geo_json_02bd808845c6534dd545c4e617330eda = L.geoJson(null, {
+                onEachFeature: geo_json_02bd808845c6534dd545c4e617330eda_onEachFeature,
+            
+                style: geo_json_02bd808845c6534dd545c4e617330eda_styler,
+            ...{
+}
+        });
+
+        function geo_json_02bd808845c6534dd545c4e617330eda_add (data) {
+            geo_json_02bd808845c6534dd545c4e617330eda
+                .addData(data);
+        }
+            geo_json_02bd808845c6534dd545c4e617330eda_add({"crs": {"properties": {"name": "urn:ogc:def:crs:OGC:1.3:CRS84"}, "type": "name"}, "features": [{"geometry": {"coordinates": [[36.85962481889899, -1.325590148045109], [36.860219932739355, -1.324216794189291], [36.860795209451716, -1.322947556736174], [36.861479590368134, -1.321415546601766], [36.86259046953682, -1.319070428935056], [36.863021927071074, -1.318128414873556], [36.86341371034931, -1.318336649591526], [36.86382533075557, -1.318564716167413], [36.86339387322131, -1.319516645997624], [36.86374102296153, -1.3203991639523], [36.86392947567763, -1.320870170597643], [36.86426670685384, -1.321246975849639], [36.86561067227666, -1.322689742799147], [36.86469320510611, -1.323582175543937], [36.862739247996906, -1.325550484406521], [36.862208604822584, -1.32558519009032], [36.8599521315112, -1.325600063954656], [36.85965705423202, -1.325600063954656]], "type": "LineString"}, "id": "0", "properties": {}, "type": "Feature"}], "name": "mukuru", "type": "FeatureCollection"});
+
+        
+    
+            geo_json_02bd808845c6534dd545c4e617330eda.addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+        
+    
+        L.Control.CustomControl = L.Control.extend({
+            onAdd: function(map) {
+                let div = L.DomUtil.create('div');
+                div.innerHTML = `<div style="font-size: 20px; color: black; font-weight: bold;
+            padding: 5px; background-color: white;
+            border-radius: 5px;">Before: Mukuru wa Njenga Affordable Housing Project</div>`;
+                return div;
+            },
+            onRemove: function(map) {
+                // Nothing to do here
+            }
+        });
+        L.control.customControl = function(opts) {
+            return new L.Control.CustomControl(opts);
+        }
+        L.control.customControl(
+            { position: "topleft" }
+        ).addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+        
+    
+        L.Control.CustomControl = L.Control.extend({
+            onAdd: function(map) {
+                let div = L.DomUtil.create('div');
+                div.innerHTML = `<div style="font-size: 20px; color: black; font-weight: bold;
+            padding: 5px; background-color: white;
+            border-radius: 5px;">After - 2025</div>`;
+                return div;
+            },
+            onRemove: function(map) {
+                // Nothing to do here
+            }
+        });
+        L.control.customControl = function(opts) {
+            return new L.Control.CustomControl(opts);
+        }
+        L.control.customControl(
+            { position: "topright" }
+        ).addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+        
+    
+            var tile_layer_a724e2355a6b23d2e282643e33d26192 = L.tileLayer(
+                "http://localhost:50628/api/tiles/{z}/{x}/{y}.png?\u0026filename=z%3A%5Ccodebase%5Cwebmap%5Cmukuru.tif",
+                {
+  "minZoom": 0,
+  "maxZoom": 30,
+  "maxNativeZoom": 30,
+  "noWrap": false,
+  "attribution": "Raster file served by \u003ca href=\u0027https://github.com/banesullivan/localtileserver\u0027 target=\u0027_blank\u0027\u003elocaltileserver\u003c/a\u003e.",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+  "bounds": [[-1.325812, 36.859237], [-1.31786, 36.868508]],
+  "corsAll": false,
+}
+
+            );
+        
+    
+            tile_layer_a724e2355a6b23d2e282643e33d26192.addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+        
+    
+            var tile_layer_4957ab22d9b415cfab28c773269401eb = L.tileLayer(
+                "https://mt1.google.com/vt/lyrs=y\u0026x={x}\u0026y={y}\u0026z={z}",
+                {
+  "minZoom": 0,
+  "maxZoom": 30,
+  "maxNativeZoom": 30,
+  "noWrap": false,
+  "attribution": " ",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+  "layerName": "Right Layer",
+}
+
+            );
+        
+    
+            tile_layer_4957ab22d9b415cfab28c773269401eb.addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+        
+    
+            var side_by_side_layers_7ed71c9b869db18b80ea412ead5321b4 = L.control.sideBySide(
+                tile_layer_a724e2355a6b23d2e282643e33d26192, tile_layer_4957ab22d9b415cfab28c773269401eb
+            ).addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+        
+    
+            map_345e6b4c6c4c264774a0af32b67d46ed.fitBounds(
+                [[-1.325812, 36.859237], [-1.31786, 36.868508]],
+                {}
+            );
+        
+    
+            var layer_control_bd015ebd483254103cb0bc988ddbf16e_layers = {
+                base_layers : {
+                },
+                overlays :  {
+                    "Left Layer" : tile_layer_a724e2355a6b23d2e282643e33d26192,
+                    "Right Layer" : tile_layer_4957ab22d9b415cfab28c773269401eb,
+                },
+            };
+            let layer_control_bd015ebd483254103cb0bc988ddbf16e = L.control.layers(
+                layer_control_bd015ebd483254103cb0bc988ddbf16e_layers.base_layers,
+                layer_control_bd015ebd483254103cb0bc988ddbf16e_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": true,
+  "autoZIndex": true,
+}
+            ).addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+
+        
+    
+            tile_layer_6bc52580921ab734f406f7d4141deef4.addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+        
+    
+            geo_json_02bd808845c6534dd545c4e617330eda.addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+        
+    
+            tile_layer_a724e2355a6b23d2e282643e33d26192.addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+        
+    
+            tile_layer_4957ab22d9b415cfab28c773269401eb.addTo(map_345e6b4c6c4c264774a0af32b67d46ed);
+        
+</script>
+</html>
